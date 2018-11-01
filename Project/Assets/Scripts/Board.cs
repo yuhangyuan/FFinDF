@@ -9,9 +9,9 @@ public class Board : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        for (V = -25; V < 25; V++)
+        for (V = -15; V < 15; V++)
         {
-            for (H = -25; H < 25; H++)
+            for (H = -15; H < 15; H++)
             {
                 GameObject Ink = ObjectPool.GetInstance().GetObj("GrassTrans");
                 Ink.transform.position = transform.position + new Vector3(H, 0, V);

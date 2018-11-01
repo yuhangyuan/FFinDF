@@ -23,11 +23,8 @@ public class FrogCtrl : AICtrl
     void Update()
     {
         Hurt();
+        FieldLimit();
 
-        if (transform.position.x < -26f) { transform.position = new Vector3(transform.position.x + Time.deltaTime, transform.position.y, transform.position.z); }
-        if (transform.position.x > 24f) { transform.position = new Vector3(transform.position.x - Time.deltaTime, transform.position.y, transform.position.z); }
-        if (transform.position.z > 24f) { transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - Time.deltaTime); }
-        if (transform.position.z < -24.5f) { transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + Time.deltaTime); }
 
         Ray ray = new Ray(transform.position, transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * 3, Color.red);

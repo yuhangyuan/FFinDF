@@ -48,6 +48,15 @@ public class AICtrl : MonoBehaviour
         Debug.Log("我死了");
         Destroy(gameObject);
     }
+
+    public void FieldLimit()
+    {
+        if (transform.position.x < -26f) { transform.position = new Vector3(transform.position.x + Time.deltaTime * 10, transform.position.y, transform.position.z); }
+        if (transform.position.x > 24f) { transform.position = new Vector3(transform.position.x - Time.deltaTime * 10, transform.position.y, transform.position.z); }
+        if (transform.position.z > 24f) { transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - Time.deltaTime * 10); }
+        if (transform.position.z < -24.5f) { transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + Time.deltaTime * 10); }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Knife")

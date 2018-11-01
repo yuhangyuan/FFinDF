@@ -15,5 +15,6 @@ public class SmartCtrl : AICtrl
     void Update()
     {
         Hurt();
+        FieldLimit();
     }
 }
