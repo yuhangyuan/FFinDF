@@ -1,0 +1,3 @@
+# FFinDF
+这是一个大乱斗式的求生游戏。你可以与朋友在局域网中享受这款游戏。目前游戏还在开发中，预计会先更新一个单机版本。。。
+This is a survival and fight game.You can play with friend on LAN.This game is on developing now,It is expected to uplod a single version...
