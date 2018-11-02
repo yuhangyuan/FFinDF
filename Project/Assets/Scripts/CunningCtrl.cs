@@ -16,5 +16,6 @@ public class CunningCtrl : AICtrl
     {
         Hurt();
         FieldLimit();
+        IamDisappear();
     }
 }

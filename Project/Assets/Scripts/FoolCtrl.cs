@@ -13,7 +13,6 @@ public class FoolCtrl : AICtrl
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -21,6 +20,7 @@ public class FoolCtrl : AICtrl
     {
         Hurt();
         FieldLimit();
+        IamDisappear();
 
         //傻子移動
         if (FoolMove < MoveRate)

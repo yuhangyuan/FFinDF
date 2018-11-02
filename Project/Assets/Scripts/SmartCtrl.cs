@@ -16,5 +16,6 @@ public class SmartCtrl : AICtrl
     {
         Hurt();
         FieldLimit();
+        IamDisappear();
     }
 }

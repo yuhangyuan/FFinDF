@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class GrassCtrl : Avatar
 {
+    //草死后
+
     //草中生成物体类型
     public GameObject ItemSword;
     public GameObject ItemGun;
@@ -35,6 +37,8 @@ public class GrassCtrl : Avatar
     SpriteRenderer IsGrass;
     float SightRate;
 
+    public GameObject DeathBox;
+
     private void Awake()
     {
     }
@@ -43,6 +47,7 @@ public class GrassCtrl : Avatar
     {
         GrassAnim = GetComponentInChildren<Animator>();
         IsGrass = GetComponentInChildren<SpriteRenderer>();
+        DeathBox.GetComponent<BoxCollider>().enabled = false;
     }
 
     private void OnTriggerEnter(Collider grass)
@@ -107,6 +112,8 @@ public class GrassCtrl : Avatar
             //{
             //    IsGrass.enabled = false;
             //}
+
+            DeathBox.GetComponent<BoxCollider>().enabled = true;
             //随机生成道具
             if (!isRandomed)
             {

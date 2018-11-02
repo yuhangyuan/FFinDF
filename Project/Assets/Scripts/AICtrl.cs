@@ -7,13 +7,15 @@ public class AICtrl : MonoBehaviour
     public int health = 3;
     public float speed;
     public static bool SpeedUpMove;
-    // Use this for initialization
+    public GameObject IamHere;
+    float IamHereRate;
+
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -33,9 +35,20 @@ public class AICtrl : MonoBehaviour
     public void Fire()
     {
     }
-    public void GetGrassMove()
+    //识别最近的动静
+    public void GetMove()
     {
+        //判断为草动
+
+        //判断为阿凡达动
+
     }
+    //识别人
+    public void GetAvatar()
+    {
+
+    }
+
     public void Hurt()
     {
         if (health <= 0)
@@ -78,6 +91,25 @@ public class AICtrl : MonoBehaviour
         {
             Debug.Log("被射了一箭");
             health -= 2;
+        }
+        //如果离开草
+        if (other.name == "DeathBox")
+        {
+            Debug.Log("我被发现了！！！");
+            IamHereRate = 1.0f;
+            IamHere.GetComponent<Collider>().enabled = true;
+        }
+    }
+    //隐身延迟
+    public void IamDisappear()
+    {
+        if (IamHereRate >= 0)
+        {
+            IamHereRate -= Time.deltaTime;
+        }
+        else
+        {
+            IamHere.GetComponent<Collider>().enabled = false;
         }
     }
 }

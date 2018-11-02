@@ -21,6 +21,9 @@ public class PlayerBehaviour : Avatar
     bool handSword;
     public GameObject Amm;
 
+    public GameObject IamHere;
+    float IamHereRate;
+
     public void PlayerCtrl()
     {
 
@@ -56,16 +59,23 @@ public class PlayerBehaviour : Avatar
         GameObject MyKnife = weaponType.transform.Find("Knife").gameObject;
         MyKnife.tag = "MyCuter";
 
-
-
         weaponType.GetComponentInChildren<MeshCollider>().enabled = false;
         weaponType.GetComponentInChildren<MeshRenderer>().enabled = false;
 
+        IamHere.GetComponent<Collider>().enabled = false;
     }
 
 
     void Update()
     {
+        if (IamHereRate >= 0)
+        {
+            IamHereRate -= Time.deltaTime;
+        }
+        else
+        {
+            IamHere.GetComponent<Collider>().enabled = false;
+        }
 
         //Debug.Log("弹药数量 = " + Ammunition);
         //Debug.Log("玩家当前生命 = " + Health);
@@ -269,6 +279,13 @@ public class PlayerBehaviour : Avatar
         if (Coll.tag == "ItemSword")
         {//拥有剑
             haveSword = true;
+        }
+        //如果离开草
+        if (Coll.name == "DeathBox")
+        {
+            //Debug.Log("我被发现了！！！");
+            IamHereRate = 1.0f;
+            IamHere.GetComponent<Collider>().enabled = true;
         }
     }
     public void Hurt(int V)
